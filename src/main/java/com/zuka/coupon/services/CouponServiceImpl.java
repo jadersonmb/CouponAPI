@@ -30,7 +30,7 @@ public class CouponServiceImpl implements CouponService {
     }
 
     @Override
-    public CouponDTO findById() {
-        return null;
+    public CouponDTO findById(Long id) {
+        return couponRepository.findById(id).map(CouponMapper::toDTO).orElse(new CouponDTO());
     }
 }

@@ -8,6 +8,6 @@ public interface CouponService {
 
     CouponDTO save(CouponDTO dto);
     List<CouponDTO> listAll();
-    CouponDTO findById();
+    CouponDTO findById(Long id);
 
 }
