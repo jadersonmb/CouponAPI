@@ -9,8 +9,11 @@ import io.micronaut.test.annotation.MockBean;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.util.CompositeIterator;
+
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import javax.inject.Inject;
@@ -36,6 +39,10 @@ class CouponAPITest {
 
     @Test
     void testSave() {
+        when(couponRepository.save(any())).thenReturn(Coupon.builder()
+                                                               .description("Test")
+                                                               .build());
+
         CouponDTO result = couponService.save(CouponDTO.builder()
                                                        .description("Test")
                                                        .build());
@@ -49,7 +56,7 @@ class CouponAPITest {
                                                     .description("Test")
                                                     .build());
 
-        Mockito.when(couponRepository.findAll()).thenReturn(listCoupon);
+        when(couponRepository.findAll()).thenReturn(listCoupon);
         List<CouponDTO> list = couponService.listAll();
         Assertions.assertTrue(list.size() > 0);
     }
