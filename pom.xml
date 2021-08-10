@@ -195,7 +195,7 @@
             <path>
               <groupId>io.micronaut.openapi</groupId>
               <artifactId>micronaut-openapi</artifactId>
-              <version>${micronaut.openapi.version}</version>
+              <version>3.0.0</version>
             </path>
             <path>
               <groupId>io.micronaut.spring</groupId>
@@ -208,7 +208,9 @@
               <version>${micronaut.spring.version}</version>
             </path>
           </annotationProcessorPaths>
+          <fork>true</fork>
           <compilerArgs>
+            <arg>-J-Dmicronaut.openapi.views.spec=redoc.enabled=true,rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop</arg>
             <arg>-Amicronaut.processing.group=com.zuka.coupon</arg>
             <arg>-Amicronaut.processing.module=CouponAPI</arg>
           </compilerArgs>

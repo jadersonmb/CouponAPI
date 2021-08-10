@@ -7,7 +7,9 @@ import io.swagger.v3.oas.annotations.info.*;
 @OpenAPIDefinition(
     info = @Info(
             title = "CouponAPI",
-            version = "0.0"
+            version = "0.1",
+            description = "Create the coupon",
+            license = @License(name = "MIT")
     )
 )
 public class Application {
