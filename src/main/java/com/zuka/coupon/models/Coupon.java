@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +21,8 @@ public class Coupon {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "desc", columnDefinition = "json", nullable = false)
+    @Convert(converter = JpaConverterJson.class)
+    private Map<String, String> desc;
 }
