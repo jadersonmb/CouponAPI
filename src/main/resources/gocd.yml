@@ -1,0 +1,17 @@
+# Arquivo de configuração da pipeline GoCD com Docker
+
+pipelines:
+  defaultPipeline:
+    group: MyProject
+    materials:
+      - git: https://github.com/jadersonmb/CouponAPI.git
+        branch: master
+    stages:
+      - build:
+          jobs:
+            - mvn-clean-install:
+                environment_variables:
+                  MAVEN_OPTS: "-Dmaven.repo.local=/go-agent/.m2/repository"
+                docker:
+                  image: maven:3.8.2-openjdk-11-slim
+                  command: "mvn clean install"
