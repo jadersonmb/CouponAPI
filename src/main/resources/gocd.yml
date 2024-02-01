@@ -2,7 +2,7 @@
 
 pipelines:
   defaultPipeline:
-    group: MyProject
+    group: default
     materials:
       - git: https://github.com/jadersonmb/CouponAPI.git
         branch: master
